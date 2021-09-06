@@ -35,7 +35,7 @@ const Chat = ({ socket, getUser }) => {
         <div className='container chat-window'  >
             User Name : {userName}
             <div className='chat-header'>
-                <h1>Live chat for</h1>
+                <h1>Live</h1>
             </div>
             <div className='chat-body'>
                 {messages.map(msg => {

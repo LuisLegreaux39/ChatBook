@@ -11,7 +11,7 @@ const MainRouter = props => {
             <Route exact path='/'>
                 <Login {...props} />
             </Route>
-            <Route exact path='/chat:room'>
+            <Route exact path='/chat/:room'>
                 <Chat {...props} />
             </Route>
             {/* Not found Route */}
