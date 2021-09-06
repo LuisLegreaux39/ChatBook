@@ -8,8 +8,6 @@ const Login = ({ socket, saveUser }) => {
     const [currentRoom, setCurrentRoom] = useState('');
     const history = useHistory();
 
-
-
     // Methods
     const joinRoom = () => {
 
@@ -28,7 +26,6 @@ const Login = ({ socket, saveUser }) => {
     const encrypt = key => {
         return Buffer.from(key).toString('base64')
     }
-
     return (
         <div className="App">
             <br /><br />

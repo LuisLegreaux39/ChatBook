@@ -50,7 +50,7 @@ const Chat = ({ socket, getUser, clearData }) => {
             </div>
             <div className='chat-body'>
                 {messages.map(msg => {
-                    return (<div className='message' id={msg.author === userName ? ("You") : ("other")}>
+                    return (<div className='message' key={`${msg.author}-${msg.time}`} id={msg.author === userName ? ("You") : ("other")}>
                         <div className='message-content'>{msg.message}</div>
                         <br />
                         <div className='message-meta'>
