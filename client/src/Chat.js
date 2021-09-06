@@ -1,6 +1,8 @@
+import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 
-const Chat = ({ socket, getUser }) => {
+
+const Chat = ({ socket, getUser, clearData }) => {
 
     // Reading info of the user from the local storage
     let { userName, currentRoom } = getUser()
@@ -8,6 +10,8 @@ const Chat = ({ socket, getUser }) => {
     // Hooks
     const [currentMessage, setCurrentMessage] = useState("");
     const [messages, setMessages] = useState([]);
+    const history = useHistory();
+
 
     // Methods
     const sendMessage = async () => {
@@ -25,6 +29,12 @@ const Chat = ({ socket, getUser }) => {
         }
         return;
     }
+
+    const logOut = () => {
+        clearData();
+        return history.push(`/`);
+    }
+
     useEffect(() => {
         console.log("Executed")
         socket.on("RECIEVE_MESSAGES", (data) => {
@@ -33,6 +43,7 @@ const Chat = ({ socket, getUser }) => {
     }, [socket])
     return (
         <div className='container chat-window'  >
+            <button className='btn btn-sm' onClick={() => logOut()}>&#9664;</button>
             User Name : {userName}
             <div className='chat-header'>
                 <h1>Live</h1>

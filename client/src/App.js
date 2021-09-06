@@ -20,9 +20,13 @@ const App = () => {
     let temp = localStorage.getItem(userToken);
     return temp ? (JSON.parse(temp)) : ({})
   }
+
+  const clearData = () => {
+    return localStorage.removeItem(userToken);
+  }
   return (
     <div className="App">
-      <Router socket={socket} saveUser={saveUser} getUser={getUser} />
+      <Router socket={socket} saveUser={saveUser} getUser={getUser} clearData={clearData} />
     </div>
   );
 }
